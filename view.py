@@ -12,7 +12,13 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 import csv
 
 class Ui_MainWindow(object):
+    '''
+    Class that creates the window and widgets for the GUI.
+    '''
     def setupUi(self, MainWindow):
+        '''
+        Method to set main window properties and to create and place GUI widgets.
+        '''
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(390, 390)
         MainWindow.setAutoFillBackground(False)
@@ -65,7 +71,11 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
+        '''
+        Method to translate setupUI and set inital text of labels.
+        '''
         output = ''
+        votes_output = ''
         with open('candidates.csv', 'r') as csvfile:
             candidates = csv.reader(csvfile)
             candidates_output = 'Candidates:\n\n'
