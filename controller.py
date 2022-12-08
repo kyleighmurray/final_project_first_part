@@ -55,7 +55,7 @@ class Controller(QMainWindow, Ui_MainWindow):
                 self.label_output.setText('Please enter your 8 digit ID.')
             else:
                 if input_id in voters:
-                    if voters[id] == 'Yes':
+                    if voters[input_id] == 'Yes':
                             self.label_output.setText(f'ID {input_id} has already voted.')
                     else:
                         id_valid = True
@@ -99,7 +99,7 @@ class Controller(QMainWindow, Ui_MainWindow):
         # updates __candidates_votes and updates the GUI
         if choice != '':
             self.label_output.setText(f'You have voted for {choice}.')
-            voters[id] = 'Yes'
+            voters[input_id] = 'Yes'
 
             with open('voters.csv', 'w') as voters_file:
                 voters_writer = csv.writer(voters_file)
